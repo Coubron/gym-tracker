@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package naimaier.calculodieta.util;
+package naimaier.gymtracker.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

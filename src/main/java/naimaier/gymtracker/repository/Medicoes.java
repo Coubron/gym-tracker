@@ -1,7 +1,7 @@
-package naimaier.calculodieta.repository;
+package naimaier.gymtracker.repository;
 
 import java.util.List;
-import naimaier.calculodieta.model.Medicao;
+import naimaier.gymtracker.model.Medicao;
 
 public interface Medicoes {
     public List<Medicao> todas(int usuario);

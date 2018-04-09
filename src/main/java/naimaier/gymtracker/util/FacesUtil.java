@@ -1,4 +1,4 @@
-package naimaier.calculodieta.util;
+package naimaier.gymtracker.util;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;

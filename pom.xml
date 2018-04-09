@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>naimaier</groupId>
-    <artifactId>CalculoDieta</artifactId>
+    <artifactId>gym-tracker</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>CalculoDieta</name>
+    <name>gym-tracker</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

@@ -1,6 +1,6 @@
-package naimaier.calculodieta.repository;
+package naimaier.gymtracker.repository;
 
-import naimaier.calculodieta.model.Usuario;
+import naimaier.gymtracker.model.Usuario;
 
 public interface Usuarios {
     public Usuario porCodigo(int codigo);

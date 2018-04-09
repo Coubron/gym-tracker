@@ -1,13 +1,13 @@
-package naimaier.calculodieta.infra;
+package naimaier.gymtracker.infra;
 
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.servlet.http.HttpServletRequest;
-import naimaier.calculodieta.model.Usuario;
-import naimaier.calculodieta.repository.Usuarios;
-import naimaier.calculodieta.util.JPAUtil;
+import naimaier.gymtracker.model.Usuario;
+import naimaier.gymtracker.repository.Usuarios;
+import naimaier.gymtracker.util.JPAUtil;
 
 public class UsuarioJPA implements Usuarios {
 

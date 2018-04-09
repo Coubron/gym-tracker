@@ -1,4 +1,4 @@
-package naimaier.calculodieta.bean;
+package naimaier.gymtracker.bean;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
@@ -7,10 +7,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import naimaier.calculodieta.infra.UsuarioJPA;
-import naimaier.calculodieta.model.Usuario;
-import naimaier.calculodieta.repository.Usuarios;
-import naimaier.calculodieta.util.FacesUtil;
+import naimaier.gymtracker.infra.UsuarioJPA;
+import naimaier.gymtracker.model.Usuario;
+import naimaier.gymtracker.repository.Usuarios;
+import naimaier.gymtracker.util.FacesUtil;
 
 @ManagedBean
 public class LoginBean implements Serializable {

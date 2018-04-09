@@ -1,13 +1,13 @@
-package naimaier.calculodieta.infra;
+package naimaier.gymtracker.infra;
 
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-import naimaier.calculodieta.model.Medicao;
-import naimaier.calculodieta.util.JPAUtil;
-import naimaier.calculodieta.repository.Medicoes;
+import naimaier.gymtracker.model.Medicao;
+import naimaier.gymtracker.util.JPAUtil;
+import naimaier.gymtracker.repository.Medicoes;
 
 public class MedicaoJPA implements Medicoes {
 

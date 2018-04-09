@@ -1,4 +1,4 @@
-package naimaier.calculodieta.util;
+package naimaier.gymtracker.util;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package naimaier.calculodieta.model;
+package naimaier.gymtracker.model;
 
 public enum Sexo {
     M("Masculino"),

@@ -1,4 +1,4 @@
-package naimaier.calculodieta.model;
+package naimaier.gymtracker.model;
 
 import java.io.Serializable;
 import java.util.Calendar;

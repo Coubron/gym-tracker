@@ -1,9 +1,9 @@
-package naimaier.calculodieta.model;
+package naimaier.gymtracker.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import naimaier.calculodieta.infra.MedicaoJPA;
-import naimaier.calculodieta.infra.UsuarioJPA;
+import naimaier.gymtracker.infra.MedicaoJPA;
+import naimaier.gymtracker.infra.UsuarioJPA;
 
 public class Dieta {
 

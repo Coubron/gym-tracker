@@ -1,4 +1,4 @@
-package naimaier.calculodieta.bean;
+package naimaier.gymtracker.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,11 +9,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.persistence.PersistenceException;
-import naimaier.calculodieta.infra.MedicaoJPA;
-import naimaier.calculodieta.infra.UsuarioJPA;
-import naimaier.calculodieta.model.Medicao;
-import naimaier.calculodieta.repository.Medicoes;
-import naimaier.calculodieta.util.FacesUtil;
+import naimaier.gymtracker.infra.MedicaoJPA;
+import naimaier.gymtracker.infra.UsuarioJPA;
+import naimaier.gymtracker.model.Medicao;
+import naimaier.gymtracker.repository.Medicoes;
+import naimaier.gymtracker.util.FacesUtil;
 
 @ManagedBean
 @ViewScoped

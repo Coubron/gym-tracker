@@ -1,12 +1,12 @@
-package naimaier.calculodieta.bean;
+package naimaier.gymtracker.bean;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import naimaier.calculodieta.model.Dieta;
-import naimaier.calculodieta.util.FacesUtil;
+import naimaier.gymtracker.model.Dieta;
+import naimaier.gymtracker.util.FacesUtil;
 
 @ManagedBean
 @ViewScoped

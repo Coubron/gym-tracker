@@ -1,14 +1,14 @@
-package naimaier.calculodieta.bean;
+package naimaier.gymtracker.bean;
 
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.PersistenceException;
-import naimaier.calculodieta.infra.UsuarioJPA;
-import naimaier.calculodieta.model.Sexo;
-import naimaier.calculodieta.model.Usuario;
-import naimaier.calculodieta.util.FacesUtil;
-import naimaier.calculodieta.util.MD5;
+import naimaier.gymtracker.infra.UsuarioJPA;
+import naimaier.gymtracker.model.Sexo;
+import naimaier.gymtracker.model.Usuario;
+import naimaier.gymtracker.util.FacesUtil;
+import naimaier.gymtracker.util.MD5;
 
 @ManagedBean
 public class CadastroUsuarioBean implements Serializable {
