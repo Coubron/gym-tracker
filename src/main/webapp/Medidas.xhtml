@@ -1,0 +1,140 @@
+<ui:composition template="/template/PageTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">Medidas</ui:define>
+
+    <ui:define name="content">
+
+        <h:outputStylesheet library="css" name="medidas.css"/>
+
+        <h:messages layout="table" errorClass="msg-error" infoClass="msg-info" warnClass="msg-warning" fatalClass="msg-fatal"/>
+
+        <div class="row">
+
+            <div class="column1">
+                <br/><br/><br/><br/>
+                <h:form rendered="#{!empty medidasBean.listaMedicoes}">
+
+                    <h:dataTable id="historico" var="medidas" value="#{medidasBean.listaMedicoes}" styleClass="historico">
+
+                        <h:column>
+                            <f:facet name="header" class="header">
+                                Data
+                            </f:facet>
+
+                            <h:commandLink action="#{medidasBean.selectMedicao(medidas.id)}" >
+                                <h:outputText value="#{medidas.dia}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" locale="pt-BR"/>
+                                </h:outputText>
+                            </h:commandLink>
+                        </h:column>
+
+                    </h:dataTable> 
+                </h:form>
+            </div>
+
+            <div class="column2">
+                <h:form styleClass="form" id="form-medidas">
+                    <h2>Medidas</h2>
+
+                    <h:button value="Nova Medicao" styleClass="buttons" outcome="Medidas"/>
+                    <h:panelGrid columns="4" styleClass="panel" columnClasses="label, field, label, field">
+                        <h:outputText value="Data"/>
+                        <h:inputText value="#{medidasBean.medicao.dia}" label="Data" required="true" styleClass="campo-medida">
+                            <f:convertDateTime pattern="dd/MM/yyyy" locale="pt-BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Pescoco"/>
+                        <h:inputText value="#{medidasBean.medicao.pescoco}" label="Pescoco" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Ombro"/>
+                        <h:inputText value="#{medidasBean.medicao.ombro}" label="Ombro" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="999.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Peito"/>
+                        <h:inputText value="#{medidasBean.medicao.peito}" label="Peito" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="999.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Biceps Esq."/>
+                        <h:inputText value="#{medidasBean.medicao.bicepsE}" label="Biceps esq." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Biceps Dir."/>
+                        <h:inputText value="#{medidasBean.medicao.bicepsD}" label="Biceps dir." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Antebraco Esq."/>
+                        <h:inputText value="#{medidasBean.medicao.antebracoE}" label="Antebraco esq." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Antebraco Dir."/>
+                        <h:inputText value="#{medidasBean.medicao.antebracoD}" label="Antebraco dir." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Cintura"/>
+                        <h:inputText value="#{medidasBean.medicao.cintura}" label="Cintura" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="999.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Quadril"/>
+                        <h:inputText value="#{medidasBean.medicao.quadris}" label="Quadril" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="999.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Coxa Esq."/>
+                        <h:inputText value="#{medidasBean.medicao.coxaE}" label="Coxa esq." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Coxa Dir."/>
+                        <h:inputText value="#{medidasBean.medicao.coxaD}" label="Coxa dir." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Panturrilha Esq."/>
+                        <h:inputText value="#{medidasBean.medicao.panturrilhaE}" label="Panturrilha esq." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Panturrilha Dir."/>
+                        <h:inputText value="#{medidasBean.medicao.panturrilhaD}" label="Panturrilha dir." styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="Peso"/>
+                        <h:inputText value="#{medidasBean.medicao.peso}" label="Peso" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="999.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                        <h:outputLabel value="BF"/>
+                        <h:inputText value="#{medidasBean.medicao.bf}" label="BF" styleClass="campo-medida">
+                            <f:validateDoubleRange minimum="0" maximum="99.99"/>
+                            <f:convertNumber minFractionDigits="2" locale="pt_BR"/>
+                        </h:inputText>
+                    </h:panelGrid>
+
+                    <h:outputLabel value="Notas"/><br/>
+                    <h:inputTextarea value="#{medidasBean.medicao.descricao}" label="Notas">
+                        <f:validateLength maximum="255"/>
+                    </h:inputTextarea>
+
+                    <br/>
+                    <h:commandButton value="Salvar" styleClass="buttons" action="#{medidasBean.salvar}" rendered="#{!medidasBean.editing}"/>
+                    <h:commandButton value="Salvar" styleClass="buttons" action="#{medidasBean.salvar}" rendered="#{medidasBean.editing}" onclick="return confirm('Tem certeza que deseja sobrescrever este registro?');"/>
+                    <h:commandButton value="Remover" styleClass="buttons" action="#{medidasBean.remover}" rendered="#{!empty medidasBean.medicao.usuario}" onclick="return confirm('Tem certeza que deseja remover este registro?');"/>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

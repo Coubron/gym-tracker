@@ -1,0 +1,137 @@
+<ui:composition template="/template/PageTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">Dieta</ui:define>
+
+    <ui:define name="content">
+
+        <h:outputStylesheet library="css" name="dieta.css"/>
+        
+        <h:outputLabel rendered="#{dietaBean.calculationEnabled}"/> <!-- Apenas para construir o bean antes do h:messages -->
+        <h:messages layout="table" errorClass="msg-error" infoClass="msg-info" warnClass="msg-warning" fatalClass="msg-fatal"/>
+
+        <div class="conteudo">
+            <h1>Dieta</h1>
+
+            <h:form>
+                <h3>Objetivo</h3>
+                <h:selectOneRadio value="#{dietaBean.dietaSelecionada}" label="Objetivo" required="true">
+                    <f:ajax render="@all" listener="#{dietaBean.eventListener}"/>
+                    <f:selectItem itemLabel="Manter o peso" itemValue="manutencao"/>
+                    <f:selectItem itemLabel="Bulking (ganho de peso)" itemValue="bulking"/>
+                    <f:selectItem itemLabel="Cutting (perda de peso)" itemValue="cutting"/>
+                </h:selectOneRadio>
+
+                <br/>
+                <h3>Selecione seu nivel de atividade</h3>
+                <h:selectOneRadio value="#{dietaBean.dieta.activity}" label="Atividade" layout="pageDirection" required="true">
+                    <f:ajax render="@all" listener="#{dietaBean.eventListener}"/> <!--TODO verificar esse render-->
+                    <f:selectItem itemLabel="Sedentario (pouco ou nenhum exercicio)" itemValue="1.2"/>
+                    <f:selectItem itemLabel="Levemente ativo (treino/esportes 2-3 dias por semana)" itemValue="1.375"/>
+                    <f:selectItem itemLabel="Moderadamente ativo (treino/esportes 4-5 dias por semana)" itemValue="1.55"/>
+                    <f:selectItem itemLabel="Muito ativo (treino/esportes 6-7 dias por semana)" itemValue="1.725"/>
+                    <f:selectItem itemLabel="Extremaente ativo (treino extremamente pesado, duas vezes ao dia)" itemValue="1.9"/>
+                </h:selectOneRadio>
+                <br/>
+            </h:form>
+
+            <h:form rendered="#{dietaBean.dieta.activity ne 0 and dietaBean.dietaSelecionada eq 'manutencao' and dietaBean.calculationEnabled}">
+                <h2>Manutencao</h2>
+                <h3>Ingestao diaria recomendada</h3>
+                <h:panelGrid columns="4" styleClass="grid">
+                    <h:outputLabel value="Kcal" class="grid-header"/>
+                    <h:outputLabel value="Proteinas" class="grid-header"/>
+                    <h:outputLabel value="Carboidratos" class="grid-header"/>
+                    <h:outputLabel value="Gorduras" class="grid-header"/>
+
+                    <h:outputLabel value="#{dietaBean.dieta.macrosManutencao.kcal}">
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                    <h:outputLabel value="#{dietaBean.dieta.macrosManutencao.proteinas}"> g
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                    <h:outputLabel value="#{dietaBean.dieta.macrosManutencao.carboidratos}"> g
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                    <h:outputLabel value="#{dietaBean.dieta.macrosManutencao.gorduras}"> g
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form rendered="#{dietaBean.dieta.activity ne 0 and dietaBean.dietaSelecionada eq 'bulking' and dietaBean.calculationEnabled}">
+                <h2>Bulking</h2>
+                <h3>Ingestao diaria recomendada</h3>
+                <h:panelGrid columns="4" styleClass="grid">
+                    <h:outputLabel value="Kcal" class="grid-header"/>
+                    <h:outputLabel value="Proteinas" class="grid-header"/>
+                    <h:outputLabel value="Carboidratos" class="grid-header"/>
+                    <h:outputLabel value="Gorduras" class="grid-header"/>
+
+                    <h:outputLabel value="#{dietaBean.dieta.macrosBulking.kcal}">
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                    <h:outputLabel value="#{dietaBean.dieta.macrosBulking.proteinas}"> g
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                    <h:outputLabel value="#{dietaBean.dieta.macrosBulking.carboidratos}"> g
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                    <h:outputLabel value="#{dietaBean.dieta.macrosBulking.gorduras}"> g
+                        <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                    </h:outputLabel>
+                </h:panelGrid>
+            </h:form>
+
+            <h:form rendered="#{dietaBean.dieta.activity ne 0 and dietaBean.dietaSelecionada eq 'cutting' and dietaBean.calculationEnabled}">
+                <br/>
+                <h2>Cutting</h2>
+                <h3>Ingestao diaria recomendada</h3>
+                <h:dataTable var="cutting" value="#{dietaBean.dieta.macrosCutting}" styleClass="data-table">
+                    <h:column>
+                        <f:facet name="header" class="table-header"><!--Verificar esses header-->
+                            Periodo 
+                        </f:facet>
+                        <h:outputLabel value="#{dietaBean.dieta.macrosCutting.indexOf(cutting)+1}ª semana"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Kcal
+                        </f:facet>
+                        <h:outputLabel value="#{cutting.kcal}">
+                            <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                        </h:outputLabel>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Proteinas
+                        </f:facet>
+                        <h:outputLabel value="#{cutting.proteinas}"> g
+                            <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                        </h:outputLabel>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Carboidratos
+                        </f:facet>
+                        <h:outputLabel value="#{cutting.carboidratos}"> g
+                            <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                        </h:outputLabel>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Gorduras
+                        </f:facet>
+                        <h:outputLabel value="#{cutting.gorduras}"> g
+                            <f:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+                        </h:outputLabel>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+
+    </ui:define>
+</ui:composition>

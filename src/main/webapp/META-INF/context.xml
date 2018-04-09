@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/CalculoDieta">
+    <Realm className="org.apache.catalina.realm.JDBCRealm"
+    driverName="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/calculodieta?useTimezone=true&amp;serverTimezone=UTC"
+    connectionName="root" connectionPassword="admin"
+    userTable="usuario" userNameCol="nome"
+    userCredCol="senha" userRoleTable="usuario"
+    roleNameCol="permissao" digest="MD5"/>
+</Context>

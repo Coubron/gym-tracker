@@ -1,0 +1,72 @@
+.column1 {
+    margin-left: 80px;
+    float: left;
+    width: 20%;
+}
+
+.column2 {
+    float: left;
+    width: 40%;
+}
+
+.panel {
+    background-color: #c8d6e5;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.panel .label {
+    text-align: right;
+    padding-bottom: 8px;
+    padding-left: 15px;
+}
+
+.panel .field {
+    padding-bottom: 8px;
+}
+
+.historico {
+/*    border: 1px solid #666666;
+    border-spacing: 0;
+    border-collapse: collapse;*/
+}
+
+.historico td, .historico th {
+    background-color: #c8d6e5;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.historico a{
+    text-decoration: none;
+    color: #000;
+}
+/*
+.historico .header {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: #666666;
+}*/
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+textarea {
+    width: 425px;
+    height: 80px;
+}
+
+.campo-medida {
+    width: 80px;
+    text-align: right;
+}

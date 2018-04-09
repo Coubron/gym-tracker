@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title><ui:insert name="title">Calculo de Dieta</ui:insert></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="general.css" />
+    </h:head>
+    
+    <body>
+        
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="/template/Header.xhtml"/>
+            </ui:insert>
+        </div>
+        
+        <div id="content">
+            <ui:insert name="content"/>
+        </div>
+        
+        <div id="footer">
+            <ui:insert name="footer">
+                <ui:include src="/template/Footer.xhtml"/>
+            </ui:insert>
+        </div>
+        
+    </body>
+</html>

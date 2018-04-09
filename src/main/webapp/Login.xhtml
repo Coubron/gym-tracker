@@ -1,0 +1,30 @@
+<ui:composition template="/template/PageTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="title">Login</ui:define>
+
+    <ui:define name="content">
+        <h:messages layout="table" errorClass="msg-error" infoClass="msg-info" warnClass="msg-warning" fatalClass="msg-fatal"/>
+
+        <div id="login">
+            <h1>Login</h1>
+            <h:form>
+                <h:panelGrid columns="2" styleClass="panel" columnClasses="label, field">
+                    <h:outputLabel value="Usuario"/>
+                    <h:inputText value="#{loginBean.nomeUsuario}" label="Usuario" required="true"/>
+                    <h:outputLabel value="Senha"/>
+                    <h:inputSecret value="#{loginBean.senha}" label="Senha" required="true"/>
+                    <h:outputLabel/>
+                    <h:commandButton value="Login" styleClass="buttons" action="#{loginBean.logar}"/>
+                </h:panelGrid>
+                <br/>
+                <h:link value="Criar conta" outcome="CadastroUsuario" style="text-decoration: none"/>
+            </h:form>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

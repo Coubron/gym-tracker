@@ -1,0 +1,25 @@
+.grid {
+    width: 400px;
+    text-align: right;
+    background-color: #c8d6e5;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.grid-header {
+    font-weight: bold;
+}
+
+.data-table {
+    width: 500px;
+    text-align: right;
+    background-color: #c8d6e5;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
