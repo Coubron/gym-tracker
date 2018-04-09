@@ -1,11 +1,12 @@
 package naimaier.gymtracker.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import naimaier.gymtracker.infra.MedicaoJPA;
 import naimaier.gymtracker.infra.UsuarioJPA;
 
-public class Dieta {
+public class Dieta implements Serializable{
 
     Usuario usuario = new Usuario();
     private Medicao ultimaMedicao = new Medicao();
