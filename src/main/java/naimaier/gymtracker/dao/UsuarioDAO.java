@@ -1,4 +1,4 @@
-package naimaier.gymtracker.infra;
+package naimaier.gymtracker.dao;
 
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
@@ -9,14 +9,14 @@ import naimaier.gymtracker.model.Usuario;
 import naimaier.gymtracker.repository.Usuarios;
 import naimaier.gymtracker.util.JPAUtil;
 
-public class UsuarioJPA implements Usuarios {
+public class UsuarioDAO implements Usuarios {
 
     @Override
     public Usuario porCodigo(int codigo) {
         return (new JPAUtil().getEntityManager().find(Usuario.class, codigo));
     }
 
-    /*
+    /**
     * Busca usuarios pelo nome. Retorna o objeto Usuario, se nao encontrar retorna nulo.
     */
     @Override
@@ -34,11 +34,9 @@ public class UsuarioJPA implements Usuarios {
     public Usuario ativo() {
         Usuario user = new Usuario();
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        try {
-            user = (Usuario) (new JPAUtil().getEntityManager().createQuery("select u from Usuario u where u.nome='" + request.getRemoteUser() + "'").getSingleResult());
-        } catch (NoResultException e) {
-            user = null;
-        }
+        
+        user = this.porNome(request.getRemoteUser());
+        
         return user;
     }
 

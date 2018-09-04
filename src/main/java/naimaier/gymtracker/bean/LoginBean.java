@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import naimaier.gymtracker.infra.UsuarioJPA;
+import naimaier.gymtracker.dao.UsuarioDAO;
 import naimaier.gymtracker.model.Usuario;
 import naimaier.gymtracker.repository.Usuarios;
 import naimaier.gymtracker.util.FacesUtil;
@@ -21,7 +21,7 @@ public class LoginBean implements Serializable {
 
     @PostConstruct
     public void init() {
-        Usuarios usuarios = new UsuarioJPA();
+        Usuarios usuarios = new UsuarioDAO();
         usuario = usuarios.ativo();
     }
     

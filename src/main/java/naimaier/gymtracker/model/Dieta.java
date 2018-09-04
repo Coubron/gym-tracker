@@ -3,8 +3,8 @@ package naimaier.gymtracker.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import naimaier.gymtracker.infra.MedicaoJPA;
-import naimaier.gymtracker.infra.UsuarioJPA;
+import naimaier.gymtracker.dao.MedicaoDAO;
+import naimaier.gymtracker.dao.UsuarioDAO;
 
 public class Dieta implements Serializable{
 
@@ -27,9 +27,9 @@ public class Dieta implements Serializable{
 
     public void init() {
         //Busca o usuario atual
-        this.setUsuario(new UsuarioJPA().ativo());
+        this.setUsuario(new UsuarioDAO().ativo());
         //Busca as ultimas medidas cadastradas
-        this.setUltimaMedicao(new MedicaoJPA().ultima(usuario.getId()));//TODO Erro se nao encontrar ou nao encontrar o peso
+        this.setUltimaMedicao(new MedicaoDAO().ultima(usuario.getId()));//TODO Erro se nao encontrar ou nao encontrar o peso
 
         if (this.getUltimaMedicao() != null) {
             //Inicializa os dados

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.PersistenceException;
-import naimaier.gymtracker.infra.UsuarioJPA;
+import naimaier.gymtracker.dao.UsuarioDAO;
 import naimaier.gymtracker.model.Sexo;
 import naimaier.gymtracker.model.Usuario;
 import naimaier.gymtracker.util.FacesUtil;
@@ -31,9 +31,9 @@ public class CadastroUsuarioBean implements Serializable {
         this.usuario.setPermissao("user");
         this.usuario.setSenha(MD5.convert(this.usuario.getSenha()));
 
-        if (new UsuarioJPA().porNome(this.usuario.getNome()) == null) {
+        if (new UsuarioDAO().porNome(this.usuario.getNome()) == null) {
             try {
-                new UsuarioJPA().salvar(usuario);
+                new UsuarioDAO().salvar(usuario);
             } catch (PersistenceException e) {
                 FacesUtil.adicionarMensagem(FacesMessage.SEVERITY_ERROR, "Erro ao criar usuario");
                 return null;

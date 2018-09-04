@@ -1,4 +1,4 @@
-package naimaier.gymtracker.infra;
+package naimaier.gymtracker.dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -9,7 +9,7 @@ import naimaier.gymtracker.model.Medicao;
 import naimaier.gymtracker.util.JPAUtil;
 import naimaier.gymtracker.repository.Medicoes;
 
-public class MedicaoJPA implements Medicoes {
+public class MedicaoDAO implements Medicoes {
 
     @Override
     public List<Medicao> todas(int usuario) {
